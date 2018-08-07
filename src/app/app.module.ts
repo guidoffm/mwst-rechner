@@ -6,11 +6,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { BruttoZuNetto } from '../pages/home/brutto-zu-netto/brutto-zu-netto';
+import { NettoZuBrutto } from '../pages/home/netto-zu-brutto/netto-zu-brutto';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    BruttoZuNetto,
+    NettoZuBrutto
   ],
   imports: [
     BrowserModule,
@@ -19,7 +23,9 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    BruttoZuNetto,
+    NettoZuBrutto
   ],
   providers: [
     StatusBar,
