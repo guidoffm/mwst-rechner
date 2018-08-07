@@ -1,21 +1,23 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Tabs</ion-title>
+        <ion-title>Brutto -> Netto</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item>
-            <ion-label color="primary">Inline Label</ion-label>
-            <ion-input placeholder="Text Input"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary">Inline Label</ion-label>
-            <ion-input placeholder="Text Input"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label color="primary">Inline Label</ion-label>
-            <ion-input placeholder="Text Input"></ion-input>
-        </ion-item>
+        <form name="form1">
+            <ion-item>
+                <ion-label color="primary" stacked>Bruttobetrag</ion-label>
+                <ion-input placeholder="Bruttobetrag" name="brutto" [(ngModel)]="brutto"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Steuerbetrag</ion-label>
+                <ion-input placeholder="Steuerbetrag" name="steuer" [(ngModel)]="steuer" readonly="true"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" stacked>Nettobetrag</ion-label>
+                <ion-input placeholder="Nettobetrag" name="netto" [(ngModel)]="netto" readonly="true"></ion-input>
+            </ion-item>
+        </form>
     </ion-list>
 </ion-content>

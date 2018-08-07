@@ -4,7 +4,10 @@ import { Component } from '@angular/core';
   templateUrl: 'brutto-zu-netto.html'
 })
 export class BruttoZuNetto {
-
+  brutto = '11,90';
+  netto = '10';
+  steuer = '1,19';
+  steuerSatz = 19;
   constructor() {
 
   }
