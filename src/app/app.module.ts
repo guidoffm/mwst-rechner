@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { BruttoZuNetto } from '../pages/home/brutto-zu-netto/brutto-zu-netto';
 import { NettoZuBrutto } from '../pages/home/netto-zu-brutto/netto-zu-brutto';
+import { StSatzWahl } from '../pages/home/st-satz-wahl/st-satz-wahl';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     BruttoZuNetto,
-    NettoZuBrutto
+    NettoZuBrutto,
+    StSatzWahl
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { NettoZuBrutto } from '../pages/home/netto-zu-brutto/netto-zu-brutto';
     MyApp,
     HomePage,
     BruttoZuNetto,
-    NettoZuBrutto
+    NettoZuBrutto,
+    StSatzWahl
   ],
   providers: [
     StatusBar,
