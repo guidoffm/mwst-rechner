@@ -8,7 +8,7 @@
         <form name="form1">
             <ion-item>
                 <ion-label color="primary" stacked>Bruttobetrag</ion-label>
-                <ion-input placeholder="Bruttobetrag" name="bruttoString" [(ngModel)]="bruttoString" (ionChange)="onChangeBrutto($event.value)"></ion-input>
+                <ion-input placeholder="Bruttobetrag" name="bruttoString" [(ngModel)]="bruttoString"></ion-input>
             </ion-item>
             <st-satz-wahl [steuersatz]="steuerSatz" (steuersatzChanged)="steuersatzChanged($event)"></st-satz-wahl>
             <ion-item>

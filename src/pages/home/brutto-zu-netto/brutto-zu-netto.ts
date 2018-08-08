@@ -40,11 +40,6 @@ export class BruttoZuNetto implements OnInit {
     return this.currencyPipe.transform(this.nettoNumber, 'EUR')
   }
 
-  onChangeBrutto(value: string) {
-    // this.bruttoNumber = this.getNumberFromString(value);
-    // this.calculate();
-  }
-
   steuersatzChanged(value) {
     this.steuerSatz = value;
     this.calculate();
