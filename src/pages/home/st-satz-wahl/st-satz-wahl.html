@@ -1,6 +1,6 @@
 <ion-item>
     <ion-label color="primary" stacked>Steuersatz</ion-label>
-    <ion-select [(ngModel)]="steuersatz">
+    <ion-select [(ngModel)]="steuersatz" (ionChange)="onChangeSelection($event)">
         <ion-option value="v">Voller Satz 19%</ion-option>
         <ion-option value="r">Reduzierter Satz 7%</ion-option>
     </ion-select>

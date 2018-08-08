@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { BruttoZuNetto } from '../pages/home/brutto-zu-netto/brutto-zu-netto';
 import { NettoZuBrutto } from '../pages/home/netto-zu-brutto/netto-zu-brutto';
 import { StSatzWahl } from '../pages/home/st-satz-wahl/st-satz-wahl';
+import { CurrencyPipe } from '../../node_modules/@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { StSatzWahl } from '../pages/home/st-satz-wahl/st-satz-wahl';
   providers: [
     StatusBar,
     SplashScreen,
+    CurrencyPipe,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

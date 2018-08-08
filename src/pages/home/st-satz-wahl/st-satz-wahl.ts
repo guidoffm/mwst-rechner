@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'st-satz-wahl',
@@ -6,8 +6,14 @@ import { Component } from '@angular/core';
 })
 export class StSatzWahl {
 
+  @Input() steuersatz: string;
+  @Output() steuersatzChanged: EventEmitter<string> = new EventEmitter();
+
   constructor() {
 
   }
 
+  onChangeSelection(value) {
+    this.steuersatzChanged.emit(value);
+  }
 }
