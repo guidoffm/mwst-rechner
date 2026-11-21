@@ -37,10 +37,10 @@ npx cap open android # Android Studio → Build › Generate Signed App Bundle (
 npx cap open ios     # Xcode → Product › Archive → App Store Connect
 ```
 
-Icons und Splashscreens werden aus `assets/` erzeugt:
+Icons und Splashscreens werden aus `assets/` erzeugt (Quellen neu rendern: `node scripts/render-icons.mjs assets`):
 
 ```bash
-npx capacitor-assets generate --iconBackgroundColor '#2F6BFF' --iconBackgroundColorDark '#1238A8' \
+npx capacitor-assets generate --iconBackgroundColor '#4FD8D0' --iconBackgroundColorDark '#0B2F35' \
   --splashBackgroundColor '#FFFFFF' --splashBackgroundColorDark '#121212'
 ```
 

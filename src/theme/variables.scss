@@ -1,2 +1,23 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+
+/* Markenfarbe passend zum App-Icon (Petrol). Kontrast zu Weiß ≥ 4.5:1. */
+:root {
+  --ion-color-primary: #0b7a78;
+  --ion-color-primary-rgb: 11, 122, 120;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #0a6b6a;
+  --ion-color-primary-tint: #238786;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-color-primary: #4fd8d0;
+    --ion-color-primary-rgb: 79, 216, 208;
+    --ion-color-primary-contrast: #002624;
+    --ion-color-primary-contrast-rgb: 0, 38, 36;
+    --ion-color-primary-shade: #46beb7;
+    --ion-color-primary-tint: #61dcd5;
+  }
+}
