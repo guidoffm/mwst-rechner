@@ -12,44 +12,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  @if (entries().length === 0) {
-  <div class="empty ion-padding ion-text-center">
-    <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-    <h2>Noch keine Einträge</h2>
-    <ion-text color="medium">
-      <p>Tippe im Rechner auf „Merken“, um eine Berechnung hier zu speichern.</p>
-    </ion-text>
-  </div>
-  } @else {
-  <ion-list>
-    @for (e of entries(); track e.id) {
-    <ion-item-sliding #sliding>
-      <ion-item button [detail]="false" (click)="copy(e)">
-        <ion-label>
-          <h2>
-            {{ money(e, e.direction === 'gross-to-net' ? e.netCents : e.grossCents) }}
-            <small>{{ e.direction === 'gross-to-net' ? 'netto' : 'brutto' }}</small>
-          </h2>
-          <p>
-            aus {{ money(e, e.direction === 'gross-to-net' ? e.grossCents : e.netCents) }} {{ e.direction ===
-            'gross-to-net' ? 'brutto' : 'netto' }} · MwSt. {{ rate(e) }}: {{ money(e, e.vatCents) }}
-          </p>
-        </ion-label>
-        <ion-note slot="end">{{ date(e) }}</ion-note>
-      </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option (click)="copy(e, sliding)">
-          <ion-icon slot="icon-only" name="copy-outline" aria-label="Kopieren"></ion-icon>
-        </ion-item-option>
-        <ion-item-option color="danger" expandable (click)="remove(e)">
-          <ion-icon slot="icon-only" name="trash-outline" aria-label="Löschen"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+  <div class="page">
+    @if (entries().length === 0) {
+    <div class="empty ion-padding ion-text-center">
+      <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+      <h2>Noch keine Einträge</h2>
+      <ion-text color="medium">
+        <p>Tippe im Rechner auf „Merken“, um eine Berechnung hier zu speichern.</p>
+      </ion-text>
+    </div>
+    } @else {
+    <ion-list>
+      @for (e of entries(); track e.id) {
+      <ion-item-sliding #sliding>
+        <ion-item button [detail]="false" (click)="copy(e)">
+          <ion-label>
+            <h2>
+              {{ money(e, e.direction === 'gross-to-net' ? e.netCents : e.grossCents) }}
+              <small>{{ e.direction === 'gross-to-net' ? 'netto' : 'brutto' }}</small>
+            </h2>
+            <p>
+              aus {{ money(e, e.direction === 'gross-to-net' ? e.grossCents : e.netCents) }} {{ e.direction ===
+              'gross-to-net' ? 'brutto' : 'netto' }} · MwSt. {{ rate(e) }}: {{ money(e, e.vatCents) }}
+            </p>
+          </ion-label>
+          <ion-note slot="end">{{ date(e) }}</ion-note>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="copy(e, sliding)">
+            <ion-icon slot="icon-only" name="copy-outline" aria-label="Kopieren"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" expandable (click)="remove(e)">
+            <ion-icon slot="icon-only" name="trash-outline" aria-label="Löschen"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+      }
+    </ion-list>
+    <p class="ion-padding-horizontal ion-text-center">
+      <ion-text color="medium"><small>Tippen zum Kopieren, nach links wischen zum Löschen.</small></ion-text>
+    </p>
     }
-  </ion-list>
-  <p class="ion-padding-horizontal ion-text-center">
-    <ion-text color="medium"><small>Tippen zum Kopieren, nach links wischen zum Löschen.</small></ion-text>
-  </p>
-  }
+  </div>
 </ion-content>

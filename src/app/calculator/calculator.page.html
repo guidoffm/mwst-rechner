@@ -20,98 +20,100 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list [inset]="true">
-    <ion-item>
-      <ion-input
-        data-testid="amount"
-        [label]="inputLabel() + ' (' + country().currency + ')'"
-        labelPlacement="stacked"
-        inputmode="decimal"
-        enterkeyhint="done"
-        autocomplete="off"
-        [placeholder]="placeholder()"
-        [value]="amountText()"
-        [clearInput]="true"
-        (ionInput)="onAmountInput($event)"
-        [class.ion-invalid]="invalid()"
-        [class.ion-touched]="invalid()"
-        errorText="Bitte eine gültige Zahl eingeben"
-      ></ion-input>
-    </ion-item>
-  </ion-list>
+  <div class="page">
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-input
+          data-testid="amount"
+          [label]="inputLabel() + ' (' + country().currency + ')'"
+          labelPlacement="stacked"
+          inputmode="decimal"
+          enterkeyhint="done"
+          autocomplete="off"
+          [placeholder]="placeholder()"
+          [value]="amountText()"
+          [clearInput]="true"
+          (ionInput)="onAmountInput($event)"
+          [class.ion-invalid]="invalid()"
+          [class.ion-touched]="invalid()"
+          errorText="Bitte eine gültige Zahl eingeben"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
 
-  <ion-list-header>
-    <ion-label>Steuersatz</ion-label>
-  </ion-list-header>
-  <div class="ion-padding-horizontal">
-    <ion-segment
-      class="rates"
-      [scrollable]="true"
-      [value]="'' + settings().rate"
-      (ionChange)="onRateChange($event)"
-      aria-label="Steuersatz"
-    >
-      @for (r of rates(); track r.rate) {
-      <ion-segment-button [value]="'' + r.rate">
-        <ion-label>
-          <strong>{{ rateLabel(r.rate) }}</strong>
-          <br />
-          <small>{{ r.label }}</small>
-        </ion-label>
-      </ion-segment-button>
+    <ion-list-header>
+      <ion-label>Steuersatz</ion-label>
+    </ion-list-header>
+    <div class="ion-padding-horizontal">
+      <ion-segment
+        class="rates"
+        [scrollable]="true"
+        [value]="'' + settings().rate"
+        (ionChange)="onRateChange($event)"
+        aria-label="Steuersatz"
+      >
+        @for (r of rates(); track r.rate) {
+        <ion-segment-button [value]="'' + r.rate">
+          <ion-label>
+            <strong>{{ rateLabel(r.rate) }}</strong>
+            <br />
+            <small>{{ r.label }}</small>
+          </ion-label>
+        </ion-segment-button>
+        }
+      </ion-segment>
+    </div>
+
+    <ion-card class="result" data-testid="result">
+      <ion-card-content>
+        <button
+          type="button"
+          class="row"
+          [class.primary]="settings().direction === 'gross-to-net'"
+          (click)="copyValue(result().netCents, 'Nettobetrag')"
+        >
+          <span>Netto</span>
+          <span class="value" data-testid="net">{{ money(result().netCents) }}</span>
+        </button>
+        <button type="button" class="row" (click)="copyValue(result().vatCents, 'Steuerbetrag')">
+          <span>MwSt. {{ rateLabel(result().rate) }}</span>
+          <span class="value" data-testid="vat">{{ money(result().vatCents) }}</span>
+        </button>
+        <button
+          type="button"
+          class="row"
+          [class.primary]="settings().direction === 'net-to-gross'"
+          (click)="copyValue(result().grossCents, 'Bruttobetrag')"
+        >
+          <span>Brutto</span>
+          <span class="value" data-testid="gross">{{ money(result().grossCents) }}</span>
+        </button>
+        <ion-note class="hint">Tippe auf einen Betrag, um ihn zu kopieren.</ion-note>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="actions ion-padding-horizontal">
+      <ion-button fill="outline" (click)="copyAll()">
+        <ion-icon slot="start" name="copy-outline" aria-hidden="true"></ion-icon>
+        Kopieren
+      </ion-button>
+      @if (shareAvailable()) {
+      <ion-button fill="outline" (click)="share()">
+        <ion-icon slot="start" name="share-outline" aria-hidden="true"></ion-icon>
+        Teilen
+      </ion-button>
       }
-    </ion-segment>
-  </div>
+      <ion-button (click)="save()">
+        <ion-icon slot="start" name="bookmark-outline" aria-hidden="true"></ion-icon>
+        Merken
+      </ion-button>
+    </div>
 
-  <ion-card class="result" data-testid="result">
-    <ion-card-content>
-      <button
-        type="button"
-        class="row"
-        [class.primary]="settings().direction === 'gross-to-net'"
-        (click)="copyValue(result().netCents, 'Nettobetrag')"
-      >
-        <span>Netto</span>
-        <span class="value" data-testid="net">{{ money(result().netCents) }}</span>
-      </button>
-      <button type="button" class="row" (click)="copyValue(result().vatCents, 'Steuerbetrag')">
-        <span>MwSt. {{ rateLabel(result().rate) }}</span>
-        <span class="value" data-testid="vat">{{ money(result().vatCents) }}</span>
-      </button>
-      <button
-        type="button"
-        class="row"
-        [class.primary]="settings().direction === 'net-to-gross'"
-        (click)="copyValue(result().grossCents, 'Bruttobetrag')"
-      >
-        <span>Brutto</span>
-        <span class="value" data-testid="gross">{{ money(result().grossCents) }}</span>
-      </button>
-      <ion-note class="hint">Tippe auf einen Betrag, um ihn zu kopieren.</ion-note>
-    </ion-card-content>
-  </ion-card>
-
-  <div class="actions ion-padding-horizontal">
-    <ion-button fill="outline" (click)="copyAll()">
-      <ion-icon slot="start" name="copy-outline" aria-hidden="true"></ion-icon>
-      Kopieren
-    </ion-button>
-    @if (shareAvailable()) {
-    <ion-button fill="outline" (click)="share()">
-      <ion-icon slot="start" name="share-outline" aria-hidden="true"></ion-icon>
-      Teilen
-    </ion-button>
-    }
-    <ion-button (click)="save()">
-      <ion-icon slot="start" name="bookmark-outline" aria-hidden="true"></ion-icon>
-      Merken
-    </ion-button>
-  </div>
-
-  <div class="ion-text-center ion-padding">
-    <ion-button fill="clear" size="small" (click)="swap()">
-      <ion-icon slot="start" name="swap-vertical" aria-hidden="true"></ion-icon>
-      Ergebnis in Gegenrichtung übernehmen
-    </ion-button>
+    <div class="ion-text-center ion-padding">
+      <ion-button fill="clear" size="small" (click)="swap()">
+        <ion-icon slot="start" name="swap-vertical" aria-hidden="true"></ion-icon>
+        Ergebnis in Gegenrichtung übernehmen
+      </ion-button>
+    </div>
   </div>
 </ion-content>
