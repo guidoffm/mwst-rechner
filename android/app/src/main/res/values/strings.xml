@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">MwSt-Rechner</string>
     <string name="title_activity_main">MwSt-Rechner</string>
-    <string name="package_name">com.altiros.mwst</string>
-    <string name="custom_url_scheme">com.altiros.mwst</string>
+    <string name="package_name">com.altiros.mwstrechner</string>
+    <string name="custom_url_scheme">com.altiros.mwstrechner</string>
 </resources>

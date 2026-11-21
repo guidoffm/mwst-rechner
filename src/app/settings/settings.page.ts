@@ -48,6 +48,9 @@ export class SettingsPage {
   readonly settings = this.settingsService.settings;
   readonly country = this.settingsService.country;
   readonly version = environment.version;
+  readonly privacyUrl = 'https://www.altiros.com/mwst-rechner/privacy/';
+  readonly imprintUrl = 'https://www.altiros.com/imprint/';
+  readonly supportUrl = 'mailto:mail@altiros.com?subject=MwSt-Rechner';
 
   readonly customText = signal('');
   readonly customRate = computed(() => {

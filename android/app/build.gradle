@@ -1,10 +1,27 @@
 apply plugin: 'com.android.application'
 
+// Release-Signierung mit dem Upload-Key der Altiros GmbH.
+// Keystore und Passwort liegen bewusst außerhalb des Repos:
+//   Keystore: ~/.keystores/altiros/mwst-rechner-upload.jks (überschreibbar mit MWST_UPLOAD_KEYSTORE)
+//   Passwort: macOS-Schlüsselbund, Dienst "mwst-rechner-upload-keystore" (oder Umgebungsvariable MWST_UPLOAD_PASSWORD)
+def uploadKeystore = file(System.getenv('MWST_UPLOAD_KEYSTORE') ?: "${System.getProperty('user.home')}/.keystores/altiros/mwst-rechner-upload.jks")
+def uploadPassword = {
+    def env = System.getenv('MWST_UPLOAD_PASSWORD')
+    if (env) return env
+    try {
+        def proc = ['security', 'find-generic-password', '-s', 'mwst-rechner-upload-keystore', '-w'].execute()
+        proc.waitFor()
+        return proc.exitValue() == 0 ? proc.text.trim() : null
+    } catch (ignored) {
+        return null
+    }
+}
+
 android {
-    namespace = "com.altiros.mwst"
+    namespace = "com.altiros.mwstrechner"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.altiros.mwst"
+        applicationId "com.altiros.mwstrechner"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 20000
@@ -16,8 +33,22 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (uploadKeystore.exists()) {
+                def pw = uploadPassword()
+                storeFile uploadKeystore
+                storePassword pw
+                keyAlias 'upload'
+                keyPassword pw
+            }
+        }
+    }
     buildTypes {
         release {
+            if (uploadKeystore.exists()) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

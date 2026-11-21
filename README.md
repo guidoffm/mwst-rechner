@@ -50,17 +50,32 @@ npx capacitor-assets generate --iconBackgroundColor '#2F6BFF' --iconBackgroundCo
 - Android: `android/app/build.gradle` → `versionCode` (muss bei jedem Upload steigen) und `versionName`
 - iOS: Xcode → Target App → General → Version / Build
 
+## Signierung (Android)
+
+Release-Builds werden automatisch mit dem Upload-Key der Altiros GmbH signiert:
+
+- Keystore: `~/.keystores/altiros/mwst-rechner-upload.jks` (Alias `upload`, gültig bis 2056) – **nicht im Repo**
+- Passwort: macOS-Schlüsselbund, Dienst `mwst-rechner-upload-keystore`
+  (alternativ `MWST_UPLOAD_KEYSTORE` / `MWST_UPLOAD_PASSWORD` setzen)
+
+```bash
+npm run build && npx cap sync android
+cd android && JAVA_HOME=$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home ./gradlew bundleRelease
+# → android/app/build/outputs/bundle/release/app-release.aab
+```
+
+**Keystore und Passwort unbedingt sichern** (z. B. Passwort-Manager). Beim Anlegen der App in der Play Console
+Play App Signing verwenden – dann kann ein verlorener Upload-Key zurückgesetzt werden.
+
 ## Store-Veröffentlichung – offene Punkte
 
-- [x] **App-ID** `com.altiros.mwst` (bestehender Play-Store-Eintrag der Altiros GmbH, letzte Version 1.4 /
-      versionCode 50 von 2015, 10.000+ Downloads, 4,2 ★)
-- [ ] **Android-Signaturschlüssel**: Play App Signing ist für die App *nicht* aktiv. Ein Update muss mit dem
-      Original-Keystore (APK 1.4 von 2015) signiert werden. Empfehlung: Keystore wiederfinden und bei der
-      ersten Veröffentlichung Play App Signing aktivieren (Play Console → App-Integrität → App-Signatur).
-      Ohne den alten Schlüssel ist kein Update möglich – dann nur Neuanlage unter neuer ID.
-- [ ] **iOS**: Bundle ID `com.altiros.mwst` im Apple Developer Portal (Team Altiros GmbH) registrieren und in
-      App Store Connect eine neue App anlegen (dort existiert noch keine).
-- [ ] Datenschutzerklärung: `docs/datenschutz.html` – Anschrift/E-Mail ergänzen, GitHub Pages (Branch `master`, Ordner `/docs`) aktivieren → `https://guidoffm.github.io/mwst-rechner/datenschutz.html`
-- [ ] Store-Screenshots, Beschreibung, Kategorie „Finanzen“ bzw. „Produktivität“
-- [ ] Play Console: Data-Safety-Formular („keine Daten erhoben“), Inhaltseinstufung, Zielgruppe
-- [ ] App Store Connect: App-Datenschutz („Keine Daten erfasst“), Export-Compliance (keine Verschlüsselung)
+- [x] App-ID **`com.altiros.mwstrechner`** (Android + iOS). Der alte Play-Eintrag `com.altiros.mwst`
+      (v1.4 von 2015) ist nicht in Play App Signing und sein Schlüssel verloren – er kann nicht aktualisiert werden.
+- [x] Upload-Keystore angelegt (siehe oben)
+- [ ] Play Console (Konto Altiros GmbH): neue App „MwSt-Rechner“ anlegen, Play App Signing aktivieren, AAB hochladen
+- [ ] Apple: Bundle ID `com.altiros.mwstrechner` registrieren, App in App Store Connect anlegen (Team Altiros GmbH)
+- [ ] Website: Produktseite https://www.altiros.com/mwst-rechner/ und Datenschutz
+      https://www.altiros.com/mwst-rechner/privacy/ (Branch `mwst-rechner` in `altiros/website-hugo`) veröffentlichen
+- [ ] Store-Screenshots, Beschreibung, Kategorie „Finanzen“ bzw. „Business“
+- [ ] Play Console: Datensicherheit („keine Daten erhoben“), Inhaltseinstufung, Zielgruppe
+- [ ] App Store Connect: App-Datenschutz („Keine Daten erfasst“); Export-Compliance ist im Info.plist gesetzt
