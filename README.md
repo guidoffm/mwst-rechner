@@ -52,10 +52,14 @@ npx capacitor-assets generate --iconBackgroundColor '#2F6BFF' --iconBackgroundCo
 
 ## Store-Veröffentlichung – offene Punkte
 
-- [ ] **App-ID**: `capacitor.config.ts`, `android/app/build.gradle` (`applicationId`, `namespace`) und
-      Xcode (Bundle Identifier) – aktuell `de.mwstrechner.app`. Soll der alte Play-Store-Eintrag weitergeführt
-      werden, muss hier dessen Application ID stehen, und der alte Upload-Key bzw. Play App Signing wird benötigt.
-- [ ] Android Upload-Keystore anlegen/wiederfinden (nicht ins Repo einchecken!)
+- [x] **App-ID** `com.altiros.mwst` (bestehender Play-Store-Eintrag der Altiros GmbH, letzte Version 1.4 /
+      versionCode 50 von 2015, 10.000+ Downloads, 4,2 ★)
+- [ ] **Android-Signaturschlüssel**: Play App Signing ist für die App *nicht* aktiv. Ein Update muss mit dem
+      Original-Keystore (APK 1.4 von 2015) signiert werden. Empfehlung: Keystore wiederfinden und bei der
+      ersten Veröffentlichung Play App Signing aktivieren (Play Console → App-Integrität → App-Signatur).
+      Ohne den alten Schlüssel ist kein Update möglich – dann nur Neuanlage unter neuer ID.
+- [ ] **iOS**: Bundle ID `com.altiros.mwst` im Apple Developer Portal (Team Altiros GmbH) registrieren und in
+      App Store Connect eine neue App anlegen (dort existiert noch keine).
 - [ ] Datenschutzerklärung: `docs/datenschutz.html` – Anschrift/E-Mail ergänzen, GitHub Pages (Branch `master`, Ordner `/docs`) aktivieren → `https://guidoffm.github.io/mwst-rechner/datenschutz.html`
 - [ ] Store-Screenshots, Beschreibung, Kategorie „Finanzen“ bzw. „Produktivität“
 - [ ] Play Console: Data-Safety-Formular („keine Daten erhoben“), Inhaltseinstufung, Zielgruppe

@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  // TODO: Durch die Application ID der früheren Play-Store-App ersetzen, falls der alte Eintrag weitergeführt werden soll.
-  appId: 'de.mwstrechner.app',
+  // Bestehender Play-Store-Eintrag (Altiros GmbH), daher nicht ändern.
+  appId: 'com.altiros.mwst',
   appName: 'MwSt-Rechner',
   webDir: 'www',
   plugins: {

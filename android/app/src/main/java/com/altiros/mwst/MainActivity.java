@@ -1,4 +1,4 @@
-package de.mwstrechner.app;
+package com.altiros.mwst;
 
 import com.getcapacitor.BridgeActivity;
 
