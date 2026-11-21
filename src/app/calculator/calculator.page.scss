@@ -1,0 +1,52 @@
+.flag {
+  font-size: 1.5rem;
+}
+
+.rates ion-segment-button {
+  min-width: 88px;
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+}
+
+.rates small {
+  opacity: 0.7;
+}
+
+.result .row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--ion-color-step-150, rgba(127, 127, 127, 0.2));
+  color: var(--ion-text-color);
+  font-size: 1.05rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.result .value {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.result .row.primary {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+}
+
+.result .hint {
+  display: block;
+  padding-top: 8px;
+  font-size: 0.8rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
