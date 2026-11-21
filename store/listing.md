@@ -107,7 +107,7 @@ Der MwSt-Rechner rechnet Bruttobeträge in Nettobeträge um und umgekehrt – sc
 
 SO EINFACH GEHT'S
 • Betrag eingeben – Netto, Mehrwertsteuer und Brutto stehen sofort da
-• Mit einem Tipp zwischen Brutto ➜ Netto und Netto ➜ Brutto wechseln
+• Mit einem Tipp zwischen Brutto → Netto und Netto → Brutto wechseln
 • Steuersatz wählen, fertig
 
 STEUERSÄTZE
@@ -151,7 +151,9 @@ mehrwertsteuer,umsatzsteuer,ust,brutto,netto,steuer,rechner,rechnung,prozent,ös
 - Altersfreigabe: 4+ (alle Fragen „Keine“)
 - App-Datenschutz: „Keine Daten erfasst“
 - Preis: kostenlos · Verfügbarkeit: alle Länder (außer China-Festland, wegen der dortigen Zusatzauflagen)
-- Screenshots: iPhone 6,9" `ios-iphone-6.9/1…5`, iPad 13" `ios-ipad-13/1…5`
+- Screenshots: iPhone 6,3" `ios-iphone-6.3/1…5` (von App Store Connect verlangt; 6,9" liegt zusätzlich bei),
+  iPad 13" `ios-ipad-13/1…5`
+- Hinweis: App Store Connect lehnt das Zeichen „➜“ ab, deshalb steht in der Apple-Beschreibung „→“
 
 **Hinweise für das App-Review**
 

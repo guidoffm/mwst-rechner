@@ -19,6 +19,8 @@ interface Target {
 const TARGETS: Target[] = [
   // App Store: iPhone 6,9" (1320 × 2868)
   { name: 'ios-iphone-6.9', mode: 'ios', app: { width: 440, height: 956, dpr: 3 }, out: { width: 1320, height: 2868 } },
+  // App Store: iPhone 6,3" (1206 × 2622) – von App Store Connect für "medium display" verlangt
+  { name: 'ios-iphone-6.3', mode: 'ios', app: { width: 402, height: 874, dpr: 3 }, out: { width: 1206, height: 2622 } },
   // App Store: iPad 13" (2064 × 2752)
   {
     name: 'ios-ipad-13',
