@@ -56,7 +56,7 @@ npx capacitor-assets generate --iconBackgroundColor '#2F6BFF' --iconBackgroundCo
       Xcode (Bundle Identifier) – aktuell `de.mwstrechner.app`. Soll der alte Play-Store-Eintrag weitergeführt
       werden, muss hier dessen Application ID stehen, und der alte Upload-Key bzw. Play App Signing wird benötigt.
 - [ ] Android Upload-Keystore anlegen/wiederfinden (nicht ins Repo einchecken!)
-- [ ] Datenschutzerklärung als öffentliche URL (Text siehe Einstellungen-Seite der App)
+- [ ] Datenschutzerklärung: `docs/datenschutz.html` – Anschrift/E-Mail ergänzen, GitHub Pages (Branch `master`, Ordner `/docs`) aktivieren → `https://guidoffm.github.io/mwst-rechner/datenschutz.html`
 - [ ] Store-Screenshots, Beschreibung, Kategorie „Finanzen“ bzw. „Produktivität“
 - [ ] Play Console: Data-Safety-Formular („keine Daten erhoben“), Inhaltseinstufung, Zielgruppe
 - [ ] App Store Connect: App-Datenschutz („Keine Daten erfasst“), Export-Compliance (keine Verschlüsselung)
