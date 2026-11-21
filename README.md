@@ -67,13 +67,28 @@ cd android && JAVA_HOME=$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents
 **Keystore und Passwort unbedingt sichern** (z. B. Passwort-Manager). Beim Anlegen der App in der Play Console
 Play App Signing verwenden – dann kann ein verlorener Upload-Key zurückgesetzt werden.
 
+## iOS-Upload (TestFlight / App Store Connect)
+
+```bash
+npm run build && npx cap sync ios
+cd ios/App
+xcodebuild -project App.xcodeproj -scheme App -configuration Release -destination 'generic/platform=iOS' \
+  -archivePath /tmp/MwSt.xcarchive archive DEVELOPMENT_TEAM=95A4WUY64Y CODE_SIGN_STYLE=Automatic \
+  CURRENT_PROJECT_VERSION=$(date +%Y%m%d.%H%M) -allowProvisioningUpdates
+xcodebuild -exportArchive -archivePath /tmp/MwSt.xcarchive -exportOptionsPlist ExportOptions.plist \
+  -exportPath /tmp/export -allowProvisioningUpdates   # lädt direkt zu App Store Connect hoch
+```
+
 ## Store-Veröffentlichung – offene Punkte
 
 - [x] App-ID **`com.altiros.mwstrechner`** (Android + iOS). Der alte Play-Eintrag `com.altiros.mwst`
       (v1.4 von 2015) ist nicht in Play App Signing und sein Schlüssel verloren – er kann nicht aktualisiert werden.
 - [x] Upload-Keystore angelegt (siehe oben)
-- [ ] Play Console (Konto Altiros GmbH): neue App „MwSt-Rechner“ anlegen, Play App Signing aktivieren, AAB hochladen
-- [ ] Apple: Bundle ID `com.altiros.mwstrechner` registrieren, App in App Store Connect anlegen (Team Altiros GmbH)
+- [x] Play Console (Konto Altiros GmbH): App „MwSt-Rechner“ angelegt, Play App Signing aktiv,
+      AAB 20001 als Entwurf im internen Test-Track
+- [x] App Store Connect (Team Altiros GmbH, 95A4WUY64Y): App „MwSt-Rechner: Brutto & Netto“ (Apple ID 6837748315,
+      SKU `mwst-rechner`), Version 2.0.0, erster Build hochgeladen; manuelle Freigabe nach Review
+- [ ] Interne Tester (Play) bzw. TestFlight-Gruppe einrichten und auf echten Geräten testen
 - [ ] Website: Produktseite https://www.altiros.com/mwst-rechner/ und Datenschutz
       https://www.altiros.com/mwst-rechner/privacy/ (Branch `mwst-rechner` in `altiros/website-hugo`) veröffentlichen
 - [ ] Store-Screenshots, Beschreibung, Kategorie „Finanzen“ bzw. „Business“
