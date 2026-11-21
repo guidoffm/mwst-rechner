@@ -12,7 +12,7 @@ const glyph = (scale) => `
 const svgs = {
   'icon-only.png': [1024, `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">${bg('g')}<rect width="1024" height="1024" fill="url(#g)"/>${glyph(0.92)}</svg>`],
   'icon-background.png': [1024, `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">${bg('g')}<rect width="1024" height="1024" fill="url(#g)"/></svg>`],
-  'icon-foreground.png': [1024, `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">${glyph(0.62)}</svg>`],
+  'icon-foreground.png': [1024, `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">${glyph(1.0)}</svg>`],
   'splash.png': [2732, `<svg xmlns="http://www.w3.org/2000/svg" width="2732" height="2732" viewBox="0 0 2732 2732"><rect width="2732" height="2732" fill="#FFFFFF"/><g transform="translate(1110 1110) scale(0.5)">${bg('g')}<rect width="1024" height="1024" rx="230" fill="url(#g)"/>${glyph(0.92)}</g></svg>`],
   'splash-dark.png': [2732, `<svg xmlns="http://www.w3.org/2000/svg" width="2732" height="2732" viewBox="0 0 2732 2732"><rect width="2732" height="2732" fill="#121212"/><g transform="translate(1110 1110) scale(0.5)">${bg('g')}<rect width="1024" height="1024" rx="230" fill="url(#g)"/>${glyph(0.92)}</g></svg>`],
 };
