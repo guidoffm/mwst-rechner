@@ -167,7 +167,7 @@ So steht es seit dem 22.11.2026 im Notizfeld in App Store Connect. Die Bildschir
 Feld „Attachment“.
 
 ```
-1. Screen recording: attached in the Attachment field. It was captured on a physical iPhone with the latest iOS and the submitted build. It starts with launching the app and shows the typical flow: entering an amount, switching between gross-to-net and net-to-gross, choosing a tax rate, copying and sharing a result, saving it with "Merken", the history tab ("Verlauf") and the settings ("Einstellungen": country, custom tax rate). The app has no account, login, user-generated content or paid content.
+1. Screen recording: attached in the Attachment field. It was captured on a physical iPhone with the latest iOS and the submitted build (installed via TestFlight). It starts with launching the app and shows the typical flow: entering an amount, switching between gross-to-net and net-to-gross, choosing the tax rates, and changing the country in the settings ("Einstellungen") from Germany to Austria and Switzerland (rates and currency change accordingly). The other features (copy, share via the iOS share sheet, "Merken" with the history tab "Verlauf", custom tax rate) work offline and without any setup. The app has no account, login, user-generated content or paid content.
 
 2. Purpose and audience: MwSt-Rechner is a VAT calculator (German "Mehrwertsteuer") that converts gross amounts to net amounts and back, with cent-exact commercial rounding, so that net plus VAT always equals the gross amount as on an invoice. It is aimed at freelancers, tradespeople, small businesses and anyone who writes or checks invoices in Germany, Austria or Switzerland.
 
