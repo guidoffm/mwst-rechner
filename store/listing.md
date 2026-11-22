@@ -161,21 +161,23 @@ mehrwertsteuer,umsatzsteuer,ust,brutto,netto,steuer,rechner,rechnung,prozent,ös
 MwSt-Rechner is a VAT calculator (German: Mehrwertsteuer) for Germany, Austria and Switzerland. No account or sign-in is required, and the app works fully offline. Enter an amount on the "Rechner" tab to see net, VAT and gross amounts; "Merken" saves a calculation to the "Verlauf" (history) tab, which is stored on the device only. "Einstellungen" lets you choose the country and add a custom tax rate. The app collects no data and contains no ads, analytics or in-app purchases.
 ```
 
-**Antwort auf Guideline 2.1 „Information Needed“** (Ablehnung 22.11.2026, wie bei Crowsnest; Bildschirmaufnahme
-vom echten iPhone als Anhang)
+**Hinweise für das App-Review nach Rückfrage (Guideline 2.1 „Information Needed“, 22.11.2026)**
+
+So steht es seit dem 22.11.2026 im Notizfeld in App Store Connect. Die Bildschirmaufnahme vom echten iPhone kommt ins
+Feld „Attachment“.
 
 ```
-Thank you for the review. The attached screen recording was made on a physical iPhone with the submitted build and shows the app launch and a typical flow: entering an amount, switching between gross-to-net and net-to-gross, choosing a tax rate, copying and sharing a result, saving it with "Merken", the history tab, and the settings (country, custom tax rate, dark mode).
+1. Screen recording: attached in the Attachment field. It was captured on a physical iPhone with the latest iOS and the submitted build. It starts with launching the app and shows the typical flow: entering an amount, switching between gross-to-net and net-to-gross, choosing a tax rate, copying and sharing a result, saving it with "Merken", the history tab ("Verlauf") and the settings ("Einstellungen": country, custom tax rate). The app has no account, login, user-generated content or paid content.
 
-1. Purpose and audience: MwSt-Rechner is a VAT calculator (German "Mehrwertsteuer") that converts gross amounts to net amounts and back, with cent-exact commercial rounding. It is aimed at freelancers, tradespeople, small businesses and anyone who writes or checks invoices in Germany, Austria or Switzerland.
+2. Purpose and audience: MwSt-Rechner is a VAT calculator (German "Mehrwertsteuer") that converts gross amounts to net amounts and back, with cent-exact commercial rounding, so that net plus VAT always equals the gross amount as on an invoice. It is aimed at freelancers, tradespeople, small businesses and anyone who writes or checks invoices in Germany, Austria or Switzerland.
 
-2. Setup and how to review: none needed. There is no account, sign-in, server, hardware or special configuration. All features are available right after launch, fully offline.
+3. Setup and access: none needed. There is no account, sign-in, server, hardware or sample file. All features are available right after launch and work fully offline. Enter an amount on the "Rechner" tab to see net, VAT and gross amounts.
 
-3. External services: none. The app makes no network requests and uses no third-party SDKs, analytics, advertising or tracking. Results are only passed on when the user taps "Teilen", through the standard iOS share sheet. History and settings are stored only on the device.
+4. External services: none. The app makes no network requests and uses no third-party SDKs, data providers, authentication, payment, analytics, advertising or AI services. Results only leave the app when the user taps "Teilen" (standard iOS share sheet). History and settings are stored only on the device.
 
-4. Regional differences: the app works the same in all regions. The user picks the country (Germany, Austria, Switzerland) in the settings, which sets the built-in tax rates and the currency (EUR or CHF); a custom rate can be added for anything else. The user interface is in German.
+5. Regional differences: none. The app works the same in all regions. The user picks the country (Germany, Austria, Switzerland) in the settings, which sets the built-in tax rates and the currency (EUR or CHF); a custom rate can be added for anything else. The user interface is in German.
 
-5. Regulated content: none. The app performs arithmetic only; it does not give tax advice, process payments, or connect to tax authorities or financial services. The description states that results are provided without guarantee and do not replace tax advice.
+6. Regulated industry / third-party material: not applicable. The app only performs arithmetic; it gives no tax advice, processes no payments and connects to no tax authority or financial service. The description states that results are without guarantee and do not replace tax advice. It contains no protected third-party material.
 
-The app is published by Altiros GmbH (Bad Homburg, Germany). Contact: mail@altiros.com.
+Publisher: Altiros GmbH, Bad Homburg, Germany. Contact: mail@altiros.com
 ```
